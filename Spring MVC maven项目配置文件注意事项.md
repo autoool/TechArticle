@@ -190,7 +190,9 @@
 
 ### applicationContext-transaction-projectname.xml 数据库事务配置
 * 数据库事务配置文件
-* 事务切入点，注意配置到service层，具体原因还没有查是为什么要配置成这样
+* 事务切入点，注意配置到service层，具体原因还没有查是为什么要配置成这样？
+因为一个Serveice可能会处理很多的逻辑， 会操作很多次数据库。 把事务放到Service层的话， 一旦出现异常， 之前操作的数据库数据都会回滚， 保证了数据的一致。
+如果事务Repository层的话，某个地方出错了之前操作的数据库信息也不会回滚
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -240,7 +242,7 @@
 * jdbc和jni配置不同
 * jdbcUrl ip和端口后面紧跟数据库名
 
-```xml &lt;!--jdbc配置 样例--&gt;
+```xml &amp;lt;!--jdbc配置 样例--&amp;gt;
 database.driverClass=com.mysql.jdbc.Driver
 database.jdbcUrl=jdbc:mysql://127.0.0.1:3306/techidea_user?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&connectTimeout=0&socketTimeout=0&zeroDateTimeBehavior=convertToNull
 database.user=admin
