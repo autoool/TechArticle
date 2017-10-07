@@ -32,7 +32,7 @@ ol li 标签选择
 class 后代选择: .out .box 
 ```
 - 编组选择器
-h1,h2,h3,.box
+  h1,h2,h3,.box
 - 伪类选择器
 ```
 ：link初始样式
@@ -43,6 +43,14 @@ active活动样式
 
 - 文本类型
 - 文本样式  font-family:"","","" 多个字体逗号隔开
-font-szie
-font-weight
+  font-szie
+  font-weight
+
+背景样式：
+background-image：url(路径)
+background-repest:no-repeat
+background-position :x:    lecft center right  y:  top center botttom
+设置背景固定
+
+添加浮动
 
