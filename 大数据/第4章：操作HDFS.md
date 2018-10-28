@@ -3,7 +3,7 @@
 多台datanode
 1.关闭防火墙
 	systemctl stop firewalld
-	systemctl -disable firewalld
+	systemctl disable firewalld
 2.修改主机名
 	vi /etc/hostname
 	reboot 重启生效
@@ -41,7 +41,7 @@ Hadoop的伪分布模式
 			</property>
 			<!--配置数据存储位置-->
 			<property>
-			  <name>dfs.datanode.name.dir</name>
+			  <name>dfs.datanode.data.dir</name>
 			  <value>/root/hd/dfs/data</value>
 			</property>
 			<!--配置HDFS的冗余度-->
