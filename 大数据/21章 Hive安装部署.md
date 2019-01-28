@@ -6,7 +6,7 @@
 
 2. 修改配置文件
 
-   vi hice-env.sh
+   vi hive-env.sh
 
    HADOOP_HOE=/root/hd/hadoop
 
@@ -27,7 +27,7 @@
 ### hive测试
 
 1） 查看数据库
-	sho;w databases;
+	show databases;
 2)使用数据库
 	use default;
 3)查看表
@@ -45,7 +45,8 @@ load data local inpath '/root/itstr.txt'  into  table itstar
 ### 安装mysql
 	yum list installed|grep mysql
 	yum search libaio
-	
+
+
 	
 	
 	

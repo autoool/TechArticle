@@ -18,25 +18,48 @@ ZooKeeper是一种集中式服务，用于维护配置信息，命名，提供�
 	- 负载均衡
 
 7）安装zookeeper集群
-	- tar -zxvf .tar
-	- 修改配置文件
-	- 	vi zoo.cfg
-	- 	dataDir=/root/hd/zookeeper-3.4.10/zkData
-	- 	集群配置增加：
-	- 	server.1=hd01:2888:3888(前面端口是和leader通信的端口，当leader挂掉，使用第二个端口通信在选举一个leader)
-	- 	server.2=hd02:2888:3888
-	- 	server.3=hd03:2888:3888
-	- 启动   bin/zkServer.sh start
-	- 查看状态  bin/zkServer.sh status
-	- 启动客户端  bin/zkCli.sh
-	- 添加文件myid
-	- 	cd zookeeper-3.4.10/zkData
-	- 	touch myid
-	- 	1
-	- 发送zookeeper文件到其它机器
-	- 增加环境变量，生效，同步环境变量
-	- 启动zookeeper
-	- 只要半数以上的节点存活，就能正常工作
-	- 配置zk集群要配置奇数台
+
+ - tar -zxvf .tar
+
+  - 修改配置文件
+       vi zoo.cfg
+       	 	dataDir=/root/hd/zookeeper-3.4.10/zkData
+       	 	集群配置增加：
+       	 	server.1=hd01:2888:3888(前面端口是和leader通信的端口，当leader挂掉，使用第二个端口通信在选举一个leader)
+       	 	server.2=hd02:2888:3888
+       	 	server.3=hd03:2888:3888
+
+  - 启动   bin/zkServer.sh start
+
+  - 查看状态  bin/zkServer.sh status
+
+  - 启动客户端  bin/zkCli.sh
+
+  - 添加文件myid
+       cd zookeeper-3.4.10/zkData
+       	 	touch myid
+       	 	1
+
+  - 发送zookeeper文件到其它机器
+
+  - 增加环境变量，生效，同步环境变量
+
+  - 启动zookeeper
+
+  - 只要半数以上的节点存活，就能正常工作
+
+  - 配置zk集群要配置奇数台
+
+- 多台机器，需要使用脚本同时启动。
+
+    echo “start zkServer…” 
+    		for i in hd01 hd02 hd03 
+    		do 
+    		ssh $i "/root/hd/zookeeper-3.4.5/bin/zkServer.sh start"
+    		done 	
+
+    chmod u+x  文件名
+
+- 
 
 
